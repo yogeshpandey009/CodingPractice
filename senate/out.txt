@@ -1,0 +1,5 @@
+Case #1: AB AB
+Case #2: AA BC A BC
+Case #3: CC BA
+Case #4: BB AA BC
+Case #5: A BC
