@@ -44,34 +44,34 @@ package code;
 public class MaxProfit {
 
     public int solution(int[] A) {
-	if (A == null || A.length == 0)
-	    return 0;
-	int[] diff = computeDiffArr(A);
-	return computeMaxSubArraySum(diff);
+        if (A == null || A.length == 0)
+            return 0;
+        int[] diff = computeDiffArr(A);
+        return computeMaxSubArraySum(diff);
     }
 
     private int[] computeDiffArr(int[] A) {
-	int[] diff = new int[A.length - 1];
-	int prev = A[0];
-	for (int i = 1; i < A.length; i++) {
-	    diff[i - 1] = A[i] - prev;
-	    prev = A[i];
-	}
-	return diff;
+        int[] diff = new int[A.length - 1];
+        int prev = A[0];
+        for (int i = 1; i < A.length; i++) {
+            diff[i - 1] = A[i] - prev;
+            prev = A[i];
+        }
+        return diff;
     }
 
     private int computeMaxSubArraySum(int[] diff) {
-	int sum = 0;
-	int maxSum = 0;
-	for (int i = 0; i < diff.length; i++) {
-	    sum += diff[i];
-	    if (sum < 0) {
-		sum = 0;
-	    }
-	    if (sum > maxSum) {
-		maxSum = sum;
-	    }
-	}
-	return maxSum;
+        int sum = 0;
+        int maxSum = 0;
+        for (int i = 0; i < diff.length; i++) {
+            sum += diff[i];
+            if (sum < 0) {
+                sum = 0;
+            }
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+        return maxSum;
     }
 }

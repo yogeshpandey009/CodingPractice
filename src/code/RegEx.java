@@ -32,26 +32,26 @@ public class RegEx {
 
     public static void main(String[] args) {
 
-	String userName = "ankita@12a";
-	String password = "1aA@2345";
-	System.out.println("Username validation result : "
-		+ validateUserName(userName));
-	System.out.println("Password validation result : "
-		+ validatePassword(password));
+        String userName = "ankita@12a";
+        String password = "1aA@2345";
+        System.out.println("Username validation result : "
+                + validateUserName(userName));
+        System.out.println("Password validation result : "
+                + validatePassword(password));
 
     }
 
     public static boolean validateUserName(String value) {
-	Pattern unamepattern;
-	unamepattern = Pattern.compile(UNAMEPATTERN);
-	matcher = unamepattern.matcher(value);
-	return matcher.matches();
+        Pattern unamepattern;
+        unamepattern = Pattern.compile(UNAMEPATTERN);
+        matcher = unamepattern.matcher(value);
+        return matcher.matches();
     }
 
     public static boolean validatePassword(String value) {
-	Pattern pwdpattern;
-	pwdpattern = Pattern.compile(PWDPATTERN);
-	matcher = pwdpattern.matcher(value);
-	return matcher.matches();
+        Pattern pwdpattern;
+        pwdpattern = Pattern.compile(PWDPATTERN);
+        matcher = pwdpattern.matcher(value);
+        return matcher.matches();
     }
 }
