@@ -1,6 +1,8 @@
 package code;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Definition for a binary tree node.
@@ -23,7 +25,7 @@ public class BFS_Traversal {
             queue.add(root);
         int sizeParent = 1;
         int size;
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         while (!queue.isEmpty()) {
             List<Integer> list = new ArrayList<Integer>();
             size = 0;
