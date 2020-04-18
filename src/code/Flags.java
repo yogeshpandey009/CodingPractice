@@ -1,8 +1,10 @@
 package code;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-//https://codility.com/demo/results/trainingHB4HN5-KCN/
+//Old approach: https://codility.com/demo/results/trainingHB4HN5-KCN/
+// Better: https://app.codility.com/demo/results/trainingAVQBHF-QRE/
+
 public class Flags {
     public static void main(String[] args) {
         // int f = countFlags(new int[] { 1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2 });
@@ -11,6 +13,49 @@ public class Flags {
         System.out.println(f);
     }
 
+
+    public static int countFlags(int[] A) {
+
+        ArrayList<Integer> peeks = new ArrayList<>();
+        for (int i = 1; i < A.length - 1; i++) {
+            if (A[i - 1] < A[i] && A[i] > A[i + 1]) {
+                peeks.add(i);
+            }
+        }
+        if (peeks.size() == 0) return 0;
+
+        int high = peeks.size();
+        int low = 1;
+        int result = low;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            boolean success = false;
+            int prev = peeks.get(0);
+            int count = 1;
+            for (int i = 1; i < peeks.size(); i++) {
+                int curr = peeks.get(i);
+                if (curr - prev >= mid) {
+                    prev = curr;
+                    count++;
+                    if (count >= mid) {
+                        success = true;
+                        break;
+                    }
+                }
+            }
+
+            if (success) {
+                result = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return result;
+    }
+}
+
+/*
     public static int countFlags(int[] A) {
         int[] peeks_dis = new int[A.length];
         int peeks_c = 0;
@@ -55,4 +100,4 @@ public class Flags {
         }
         return n;
     }
-}
+ */
